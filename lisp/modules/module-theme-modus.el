@@ -2,26 +2,21 @@
 
 ;;; Commentary:
 ;; Keep all theme-specific behavior here so the rest of the config does not
-;; need to know about Modus internals. This module owns the theme palette,
-;; the text-scale shortcuts, and optional circadian switching.
+;; need to know about Modus internals. This module aims to stay small and
+;; writing-focused: preserve the settings that visibly affect Org readability,
+;; while avoiding a large copied sample of theme options.
 
 ;;; Code:
 
 (use-package modus-themes
   :init
-  (setq modus-themes-bold-constructs nil
-        modus-themes-italic-constructs t
-        modus-themes-mixed-fonts nil
-        modus-themes-variable-pitch-ui nil
+  ;; Keep the theme config small. These settings are the ones that most clearly
+  ;; affect this writing-oriented setup.
+  (setq modus-themes-italic-constructs t
         modus-themes-mode-line '(accented borderless (padding . 4) (height . 0.9))
-        modus-themes-markup '(background italic)
         modus-themes-syntax '(yellow-comments green-strings)
         modus-themes-hl-line '(underline accented)
         modus-themes-paren-match '(bold intense)
-        modus-themes-links '(neutral-underline background)
-        modus-themes-box-buttons '(variable-pitch flat faint 0.9)
-        modus-themes-prompts nil
-        modus-themes-completions nil
         modus-themes-region '(bg-only no-extend)
         modus-themes-diffs 'desaturated
         modus-themes-org-blocks 'gray-background
