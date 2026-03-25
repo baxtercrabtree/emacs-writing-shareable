@@ -1,50 +1,27 @@
 ;;; module-org-writing.el --- Optional Org writing workflow -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;; Writing-focused Org configuration with safe defaults.
+;; Writing-focused extras layered on top of `module-org-base'. This module owns
+;; presentation tweaks, centered writing mode, word counts, and journal access.
 
 ;;; Code:
 
+(require 'module-org-base)
+
 (use-package org
   :ensure nil
-  :bind (("C-c l" . org-store-link)
-         ("C-c a" . org-agenda)
-         ("C-c c" . org-capture))
-  :init
-  (setq org-hide-emphasis-markers crabs-org-hide-emphasis-markers
-        org-log-done t
-        org-startup-folded crabs-org-startup-folded
-        org-emphasis-alist '(("*" bold)
-                             ("/" italic)
-                             ("_" underline)
-                             ("=" verbatim)
-                             ("~" code)
-                             ("+" strike-through)))
   :config
   (add-hook 'org-mode-hook #'visual-line-mode)
-  (add-hook 'org-mode-hook #'crabs-org-writing-mode-hook)
-  (font-lock-add-keywords
-   'org-mode
-   '(("^ *\\([-]\\) "
-      (0 (prog1 ()
-           (compose-region (match-beginning 1) (match-end 1) "•"))))))
-  (when (crabs-file-in-directory-p crabs-org-directory)
-    (setq org-directory (expand-file-name crabs-org-directory)
-          org-default-notes-file
-          (expand-file-name crabs-default-notes-file org-directory)
-          org-agenda-files
-          (directory-files-recursively org-directory "\\.org$")))
-  (when (crabs-file-in-directory-p crabs-org-journal-directory)
-    (setq org-journal-dir (expand-file-name crabs-org-journal-directory))))
-
-(use-package ox-md
-  :ensure nil)
+  (add-hook 'org-mode-hook #'crabs-org-writing-mode-hook))
 
 (use-package org-journal
   :after org
   :bind (("C-c C-j" . org-journal-new-entry))
   :init
-  (setq org-journal-date-format "%A, %d %B %Y"))
+  (setq org-journal-date-format "%A, %d %B %Y")
+  :config
+  (when (crabs-file-in-directory-p crabs-org-journal-directory)
+    (setq org-journal-dir (expand-file-name crabs-org-journal-directory))))
 
 (use-package wc-mode
   :commands wc-mode)
