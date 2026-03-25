@@ -5,11 +5,11 @@
 
 ;;; Code:
 
-(defun crabs-font-installed-p (font-name)
+(defun ews--font-installed-p (font-name)
   "Return non-nil when FONT-NAME is available."
   (and font-name (member font-name (font-family-list))))
 
-(defun crabs-file-in-directory-p (path)
+(defun ews--directory-exists-p (path)
   "Return non-nil when PATH exists and is a directory."
   (and path (file-directory-p path)))
 

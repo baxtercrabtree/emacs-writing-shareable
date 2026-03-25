@@ -35,12 +35,12 @@
   (define-key global-map (kbd "<f5>") #'modus-themes-toggle))
 
 (use-package circadian
-  :if (and crabs-enable-circadian
-           crabs-calendar-latitude
-           crabs-calendar-longitude)
+  :if (and ews-enable-circadian
+           ews-calendar-latitude
+           ews-calendar-longitude)
   :config
-  (setq calendar-latitude crabs-calendar-latitude
-        calendar-longitude crabs-calendar-longitude
+  (setq calendar-latitude ews-calendar-latitude
+        calendar-longitude ews-calendar-longitude
         circadian-themes '(("8:00" . modus-operandi)
                            ("16:00" . modus-vivendi)))
   (circadian-setup))

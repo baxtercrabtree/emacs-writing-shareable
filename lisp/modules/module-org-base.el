@@ -12,9 +12,9 @@
          ("C-c a" . org-agenda)
          ("C-c c" . org-capture))
   :init
-  (setq org-hide-emphasis-markers crabs-org-hide-emphasis-markers
+  (setq org-hide-emphasis-markers ews-org-hide-emphasis-markers
         org-log-done t
-        org-startup-folded crabs-org-startup-folded
+        org-startup-folded ews-org-startup-folded
         org-emphasis-alist '(("*" bold)
                              ("/" italic)
                              ("_" underline)
@@ -29,10 +29,10 @@
    '(("^ *\\([-]\\) "
       (0 (prog1 ()
            (compose-region (match-beginning 1) (match-end 1) "•"))))))
-  (when (crabs-file-in-directory-p crabs-org-directory)
-    (setq org-directory (expand-file-name crabs-org-directory)
+  (when (ews--directory-exists-p ews-org-directory)
+    (setq org-directory (expand-file-name ews-org-directory)
           org-default-notes-file
-          (expand-file-name crabs-default-notes-file org-directory)
+          (expand-file-name ews-default-notes-file org-directory)
           org-agenda-files
           (directory-files-recursively org-directory "\\.org$"))))
 

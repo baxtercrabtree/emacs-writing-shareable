@@ -6,11 +6,11 @@
 
 ;;; Code:
 
-(setq custom-file (expand-file-name "local/custom.el" crabs-config-root))
+(setq custom-file (expand-file-name "local/custom.el" ews-config-root))
 (load custom-file 'noerror)
 
-(let ((backup-dir (expand-file-name "var/backup/" crabs-config-root))
-      (autosave-dir (expand-file-name "var/auto-save/" crabs-config-root)))
+(let ((backup-dir (expand-file-name "var/backup/" ews-config-root))
+      (autosave-dir (expand-file-name "var/auto-save/" ews-config-root)))
   (make-directory backup-dir t)
   (make-directory autosave-dir t)
   (setq backup-directory-alist `((".*" . ,backup-dir))

@@ -5,84 +5,84 @@
 
 ;;; Code:
 
-(defgroup crabs nil
+(defgroup ews nil
   "Shareable Emacs configuration."
   :group 'convenience)
 
-(defcustom crabs-enabled-modules '(theme-modus)
+(defcustom ews-enabled-modules '(theme-modus)
   "Modules enabled at startup."
   :type '(repeat symbol)
-  :group 'crabs)
+  :group 'ews)
 
-(defcustom crabs-org-directory nil
+(defcustom ews-org-directory nil
   "Root Org directory used by the optional writing module."
   :type '(choice (const :tag "Unset" nil) directory)
-  :group 'crabs)
+  :group 'ews)
 
-(defcustom crabs-org-journal-directory nil
+(defcustom ews-org-journal-directory nil
   "Journal directory used by the optional writing module."
   :type '(choice (const :tag "Unset" nil) directory)
-  :group 'crabs)
+  :group 'ews)
 
-(defcustom crabs-default-notes-file "seeds/capture.org"
-  "Default notes file relative to `crabs-org-directory'."
+(defcustom ews-default-notes-file "seeds/capture.org"
+  "Default notes file relative to `ews-org-directory'."
   :type 'string
-  :group 'crabs)
+  :group 'ews)
 
-(defcustom crabs-default-fixed-font nil
+(defcustom ews-default-fixed-font nil
   "Preferred fixed pitch font family name."
   :type '(choice (const :tag "Unset" nil) string)
-  :group 'crabs)
+  :group 'ews)
 
-(defcustom crabs-default-variable-font nil
+(defcustom ews-default-variable-font nil
   "Preferred variable pitch font family name."
   :type '(choice (const :tag "Unset" nil) string)
-  :group 'crabs)
+  :group 'ews)
 
-(defcustom crabs-enable-circadian nil
+(defcustom ews-enable-circadian nil
   "Enable circadian theme switching when non-nil."
   :type 'boolean
-  :group 'crabs)
+  :group 'ews)
 
-(defcustom crabs-calendar-latitude nil
+(defcustom ews-calendar-latitude nil
   "Latitude used by circadian."
   :type '(choice (const :tag "Unset" nil) number)
-  :group 'crabs)
+  :group 'ews)
 
-(defcustom crabs-calendar-longitude nil
+(defcustom ews-calendar-longitude nil
   "Longitude used by circadian."
   :type '(choice (const :tag "Unset" nil) number)
-  :group 'crabs)
+  :group 'ews)
 
-(defcustom crabs-ispell-program
+(defcustom ews-ispell-program
   (or (executable-find "ispell")
       (executable-find "aspell")
       (executable-find "hunspell"))
   "Spell-check executable path."
   :type '(choice (const :tag "Unset" nil) file)
-  :group 'crabs)
+  :group 'ews)
 
-(defcustom crabs-org-hide-emphasis-markers t
+(defcustom ews-org-hide-emphasis-markers t
   "Whether Org should hide emphasis markers."
   :type 'boolean
-  :group 'crabs)
+  :group 'ews)
 
-(defcustom crabs-org-startup-folded 'content
+(defcustom ews-org-startup-folded 'content
   "Default folding behavior for Org buffers."
   :type '(choice symbol string)
-  :group 'crabs)
+  :group 'ews)
 
-(defcustom crabs-writing-body-width 80
+(defcustom ews-writing-body-width 80
   "Preferred body width for the writing module."
   :type 'integer
-  :group 'crabs)
+  :group 'ews)
 
-(defcustom crabs-writing-cursor-color nil
+(defcustom ews-writing-cursor-color nil
   "Optional cursor color for the writing module."
   :type '(choice (const :tag "Unset" nil) string)
-  :group 'crabs)
+  :group 'ews)
 
-(let ((local-init (expand-file-name "local/init.el" crabs-config-root)))
+(let ((local-init (expand-file-name "local/init.el" ews-config-root)))
   (when (file-exists-p local-init)
     (load local-init nil 'nomessage)))
 

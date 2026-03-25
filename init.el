@@ -15,12 +15,12 @@
 
 ;;; Code:
 
-(defconst crabs-config-root
+(defconst ews-config-root
   (file-name-directory (or load-file-name buffer-file-name))
   "Root directory of this Emacs configuration.")
 
-(add-to-list 'load-path (expand-file-name "lisp/core" crabs-config-root))
-(add-to-list 'load-path (expand-file-name "lisp/modules" crabs-config-root))
+(add-to-list 'load-path (expand-file-name "lisp/core" ews-config-root))
+(add-to-list 'load-path (expand-file-name "lisp/modules" ews-config-root))
 
 (require 'core-bootstrap)
 (require 'core-settings)

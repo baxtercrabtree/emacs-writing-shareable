@@ -1,14 +1,14 @@
 ;;; init.example.el --- Example local overrides -*- lexical-binding: t; -*-
 
-(setq crabs-enabled-modules '(theme-modus org-writing))
+(setq ews-enabled-modules '(theme-modus org-writing))
 
-(setq crabs-default-fixed-font "iA Writer Mono V")
-(setq crabs-default-variable-font "iA Writer Quattro V")
+(setq ews-default-fixed-font "iA Writer Mono V")
+(setq ews-default-variable-font "iA Writer Quattro V")
 
-(setq crabs-org-directory "~/Documents/MyStuff/crispy-fictions")
-(setq crabs-org-journal-directory "~/Documents/MyStuff/crispy-fictions/journal")
-(setq crabs-writing-cursor-color "#FF00FF")
+(setq ews-org-directory "~/Documents/MyStuff/crispy-fictions")
+(setq ews-org-journal-directory "~/Documents/MyStuff/crispy-fictions/journal")
+(setq ews-writing-cursor-color "#FF00FF")
 
-(setq crabs-enable-circadian t)
-(setq crabs-calendar-latitude 36.0)
-(setq crabs-calendar-longitude -79.0)
+(setq ews-enable-circadian t)
+(setq ews-calendar-latitude 36.0)
+(setq ews-calendar-longitude -79.0)

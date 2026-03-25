@@ -5,10 +5,10 @@
 
 ;;; Code:
 
-(when crabs-ispell-program
-  (setq ispell-program-name crabs-ispell-program))
+(when ews-ispell-program
+  (setq ispell-program-name ews-ispell-program))
 
-(defun crabs-replace-smart-quotes (beg end)
+(defun ews-replace-smart-quotes (beg end)
   "Replace smart quotes between BEG and END with ASCII quotes."
   (interactive "r")
   (format-replace-strings '(("\x201C" . "\"")

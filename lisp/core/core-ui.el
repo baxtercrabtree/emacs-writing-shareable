@@ -23,11 +23,11 @@
         " - Emacs"))
 
 (when (display-graphic-p)
-  (when (crabs-font-installed-p crabs-default-fixed-font)
-    (set-face-attribute 'default nil :family crabs-default-fixed-font)
-    (set-face-attribute 'fixed-pitch nil :family crabs-default-fixed-font :height 1.0))
-  (when (crabs-font-installed-p crabs-default-variable-font)
-    (set-face-attribute 'variable-pitch nil :family crabs-default-variable-font :height 1.0)))
+  (when (ews--font-installed-p ews-default-fixed-font)
+    (set-face-attribute 'default nil :family ews-default-fixed-font)
+    (set-face-attribute 'fixed-pitch nil :family ews-default-fixed-font :height 1.0))
+  (when (ews--font-installed-p ews-default-variable-font)
+    (set-face-attribute 'variable-pitch nil :family ews-default-variable-font :height 1.0)))
 
 (provide 'core-ui)
 ;;; core-ui.el ends here
