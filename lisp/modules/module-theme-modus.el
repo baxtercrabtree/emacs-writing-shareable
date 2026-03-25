@@ -20,10 +20,8 @@
         modus-themes-paren-match '(bold intense)
         modus-themes-links '(neutral-underline background)
         modus-themes-box-buttons '(variable-pitch flat faint 0.9)
-        modus-themes-prompts '(intense bold)
-        modus-themes-completions '((matches . (extrabold intense))
-                                   (selection . (semibold accented intense))
-                                   (popup . (accented)))
+        modus-themes-prompts nil
+        modus-themes-completions nil
         modus-themes-region '(bg-only no-extend)
         modus-themes-diffs 'desaturated
         modus-themes-org-blocks 'gray-background
