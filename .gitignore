@@ -1,0 +1,11 @@
+.DS_Store
+.elpa/
+elpa/
+auto-save-list/
+var/
+local/init.el
+local/custom.el
+bookmarks
+ido.last
+org-persist/
+*.elc
