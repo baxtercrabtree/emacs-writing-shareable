@@ -8,7 +8,6 @@ This is a small, shareable Emacs configuration with optional modules and local o
 - bootstrap packages instead of committing `elpa/`
 - separate reusable config from machine-specific state
 - keep the Org writing workflow available as an optional module
-- exclude `org-roam`, `emacsql`, `emacsql-sqlite`, and any database-backed notes setup
 
 ## Layout
 
@@ -107,11 +106,9 @@ Configure these in `local/init.el` as needed:
 
 All of them are optional. Startup should succeed even if none are set.
 
-## Scope Notes
+## Runtime State
 
-- `org-roam` is intentionally removed from this config.
-- No Org database packages are installed or configured.
-- Local state such as bookmarks, package downloads, and autosave metadata is not tracked.
+Local state such as bookmarks, package downloads, and autosave metadata is not tracked.
 
 ## Troubleshooting
 

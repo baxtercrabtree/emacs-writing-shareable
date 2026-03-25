@@ -1,11 +1,12 @@
-# Migration Notes
+# Validation Notes
 
-## Intentional removals
+## What To Check
 
-- `org-roam` is not part of this config.
-- No `emacsql` or SQLite-backed notes database is used.
-- Runtime state and downloaded packages are intentionally ignored.
+- startup completes cleanly with `--init-directory`
+- enabled modules load without errors
+- theme behavior matches expectations
+- Org capture, agenda, export, and writing helpers behave as expected
 
-## Testing approach
+## Runtime State
 
-Keep your existing `/Users/bcrabtree/.emacs.d` as the fallback. Launch the new config with `--init-directory` and compare startup, theme behavior, Org basics, and export behavior before deciding whether to adopt it as your primary setup.
+Runtime state and downloaded packages are intentionally ignored.
