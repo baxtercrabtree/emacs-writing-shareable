@@ -17,10 +17,11 @@
 (unless (bound-and-true-p package--initialized)
   (package-initialize))
 
-(unless package-archive-contents
-  (package-refresh-contents))
-
 (unless (package-installed-p 'use-package)
+  ;; Refresh only when bootstrap actually needs package metadata. Doing this on
+  ;; every startup makes routine launches slower and more fragile offline.
+  (unless package-archive-contents
+    (package-refresh-contents))
   (package-install 'use-package))
 
 (require 'use-package)
