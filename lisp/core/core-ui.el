@@ -1,7 +1,7 @@
 ;;; core-ui.el --- UI defaults -*- lexical-binding: t; -*-
 
 ;;; Commentary:
-;; Frame, font, and appearance defaults.
+;; Frame, font, appearance defaults, and global visual modes.
 
 ;;; Code:
 
@@ -11,6 +11,9 @@
   (tool-bar-mode -1))
 (when (fboundp 'menu-bar-mode)
   (menu-bar-mode 1))
+
+(global-hl-line-mode 1)
+(display-time-mode 1)
 
 (setq frame-title-format
       '((:eval (if (buffer-file-name)
