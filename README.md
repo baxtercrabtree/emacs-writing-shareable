@@ -31,21 +31,18 @@ The startup model is intentionally simple:
 
 This keeps the shared repo readable while still allowing machine-specific customization in `local/init.el`.
 
-## First Run
+## Setup
 
-1. Copy `local/init.example.el` to `local/init.el`.
-2. Edit `local/init.el` to set your paths, fonts, and optional settings.
-3. Launch Emacs with this config directly:
-
-```sh
-/Applications/Emacs.app/Contents/MacOS/Emacs --init-directory=/Users/bcrabtree/.emacs.d-shareable
-```
-
-For a one-off validation without opening the GUI:
+1. Download or clone this repository.
+2. Copy `local/init.example.el` to `local/init.el`.
+3. Edit `local/init.el` to set your paths, fonts, enabled modules, and any optional settings you want to use.
+4. Start Emacs with this repository as the init directory:
 
 ```sh
-/Applications/Emacs.app/Contents/MacOS/Emacs --batch --init-directory=/Users/bcrabtree/.emacs.d-shareable --eval '(message "shareable config loaded")'
+emacs --init-directory=/path/to/emacs-writing-shareable
 ```
+
+If you want to make it your default config, place it where Emacs loads your normal init directory or create a symlink to it.
 
 ## Optional Modules
 
