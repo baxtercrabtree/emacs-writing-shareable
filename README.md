@@ -1,10 +1,14 @@
-# Shareable Emacs Config
+# Emacs for Writing - Shareable Version
 
-This is a small, shareable Emacs configuration with optional modules and local overrides. It is designed to stay readable, modular, and easy to adapt to different writing-focused setups.
+This is a small, shareable Emacs configuration with optional modules and local overrides. It is designed to stay readable, modular, and easy to adapt to different writing-focused setups. This config is also intended to allow for a safe merge or migration from any existing emacs config you may be using.
+
+The fundamental writing system in use in this config is `org-mode`, which is a major mode for Emacs. The chosen theme is `theme-modus`.
+
+There are several additional quality-of-life features that I've found useful over the years---word count mode, centering text, switching display from dark to light with circadian. I've made these are all controllable options that can be removed or adjusted as desired.
 
 ## Goals
 
-- provide a clean starter config that can be evaluated without committing to a full migration
+- provide a clean starter config that can be evaluated without committing to a full migration of your own existing config
 - bootstrap packages instead of committing `elpa/`
 - separate reusable config from machine-specific state
 - keep the Org writing workflow available as an optional module
@@ -41,6 +45,7 @@ This keeps the shared repo readable while still allowing machine-specific custom
 ```sh
 emacs --init-directory=/path/to/emacs-writing-shareable
 ```
+5. Test to make sure that everything works as desired. I recommend writing with it for a while before fully adopting it, especially if you already have an existing Emacs config.
 
 If you want to make it your default config, place it where Emacs loads your normal init directory or create a symlink to it.
 
@@ -76,16 +81,15 @@ The shared namespace now uses `ews-`, short for "Emacs Writing Shareable."
 
 - use `ews-` for user-facing variables, commands, and setup functions
 - use `ews--` for internal helpers that are not intended as part of the public config surface
-- prefer names like `ews-org-writing-setup` for functions added to hooks, rather than naming a function `...-hook`
+- Example: I prefer names like `ews-org-writing-setup` for functions added to hooks, rather than naming a function `...-hook`
 
 This prefix is intentionally generic and repository-scoped. If you want to rename the namespace in a fork, feel free to do that. The important part is to keep one consistent prefix so your functions and variables are easy to identify and unlikely to collide with package code.
 
 ## Product Decisions
 
-Use this section to record decisions that affect the public shape of the config but are not really architectural rules.
+This section records decisions that affect the public shape of the config but are not really architectural rules.
 
-- completion stack: `ido` remains the current default because it satisfies the need to find and open files quickly without relying on Dired or buffer navigation
-- completion stack follow-up: `ido` is still a future replacement candidate because it is older than the newer Vertico/Orderless-style completion stack
+- completion stack: `ido` remains the current default because it satisfies the need to find and open files quickly without relying on Dired or buffer navigation. `ido` is still a future replacement candidate because it is older than the newer Vertico/Orderless-style completion stack.
 
 ## Local Settings
 
@@ -103,11 +107,11 @@ Configure these in `local/init.el` as needed:
 
 All of them are optional. Startup should succeed even if none are set.
 
-## Runtime State
+## Runtime State is Untracked in Purpose
 
 Local state such as bookmarks, package downloads, and autosave metadata is not tracked.
 
-## Troubleshooting
+## Some Troubleshooting Ideas
 
 - If a font is missing, Emacs falls back to its default font.
 - If `ispell`, `aspell`, or `hunspell` is missing, spell-check setup is skipped.
