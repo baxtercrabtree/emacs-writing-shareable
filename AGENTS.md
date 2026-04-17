@@ -36,6 +36,30 @@ After that, revisit the open structural decisions in `NOTES.md`:
 - Preserve the shared naming convention: `ews-` for public symbols and `ews--`
   for internal helpers.
 
+## Maintainer Hygiene
+
+Treat this repository as a reusable writing configuration, not as a dump of
+one machine's Emacs state.
+
+- Keep defaults in shared code only when they make sense for most users of a
+  writing-focused setup.
+- Keep optional workflows in modules or behind `ews-...` settings instead of
+  hardcoding personal preferences.
+- Keep personal paths, font choices, local tool paths, coordinates, and
+  one-off experiments in `local/init.el`.
+- Keep generated or runtime state out of git, including `elpa/`, `var/`,
+  `local/custom.el`, `ido.last`, bookmarks, diary files, autosaves, caches,
+  and backup snapshots.
+- Start with the most local solution that works, then promote it into shared
+  code only if it proves reusable.
+- Before promoting a local preference, ask whether a new user should inherit
+  it by default.
+- Add dependencies only when they clearly support the repository's
+  writing-focused purpose.
+- Before each commit, review `git status` for personal, generated, or
+  machine-specific files and update `README.md` or `AGENTS.md` when the public
+  behavior or maintainer workflow changes.
+
 ## Change Safety
 
 - Do not overwrite or revert user-authored changes unless explicitly asked.

@@ -6,6 +6,7 @@ var/
 local/init.el
 local/custom.el
 bookmarks
+diary
 ido.last
 org-persist/
 *.elc
