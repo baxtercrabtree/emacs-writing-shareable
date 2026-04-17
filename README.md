@@ -1,5 +1,8 @@
 # Emacs for Writing - Shareable Version
 
+Maintainers: start with `AGENTS.md` for the maintainer quick-start and
+`NOTES.md` for the current handoff and active cleanup targets.
+
 This is a small, shareable Emacs configuration with optional modules and local overrides. It is designed to stay readable, modular, and easy to adapt to different writing-focused setups. This config is also intended to allow for a safe merge or migration from any existing emacs config you may be using.
 
 The fundamental writing system in use in this config is `org-mode`, which is a major mode for Emacs. The chosen theme is `theme-modus`.
