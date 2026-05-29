@@ -1,8 +1,10 @@
 # NOTES
 
 This file is the maintainer handoff for future chats and for continuing this
-project on another machine. It captures the current state, completed cleanup,
-and the next useful decisions without trying to become a full roadmap.
+project on another machine. The next machine is expected to be a PC, so do not
+assume macOS paths, fonts, shell behavior, or installed tools are available. It
+captures the current state, completed cleanup, and the next useful decisions
+without trying to become a full roadmap.
 
 ## Current Project Shape
 
@@ -66,21 +68,29 @@ Placement rules:
 
 ## Transfer Notes
 
-On the next machine:
+On the next machine, assume a PC/Windows environment unless proven otherwise:
 
 1. Clone the repo or pull the latest `main`.
 2. Copy `local/init.example.el` to `local/init.el`.
 3. Edit `local/init.el` for that machine's paths, fonts, enabled modules, Org
-   directories, and optional circadian settings.
+   directories, and optional circadian settings. Translate the example Unix-like
+   paths to the target environment instead of copying local macOS paths.
 4. Start Emacs with:
 
    ```sh
    emacs --init-directory=/path/to/this/repo
    ```
 
+   On Windows, use the equivalent path syntax for the installed Emacs build and
+   shell, for example a `C:/...` or PowerShell-friendly path.
+
 Do not copy generated state such as `elpa/`, `var/`, `local/custom.el`,
 `bookmarks`, `diary`, `ido.last`, autosaves, caches, or backup snapshots unless
 there is a deliberate personal reason outside the repo history.
+
+Before making code changes on the PC, re-check OS-sensitive behavior in
+`lisp/core/core-os.el`, external tools such as spell-check executables, and any
+font names or Org paths configured in `local/init.el`.
 
 ## Provenance
 
