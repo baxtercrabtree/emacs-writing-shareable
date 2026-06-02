@@ -22,12 +22,26 @@
         (:eval (if (buffer-modified-p) " *" ""))
         " - Emacs"))
 
-(when (display-graphic-p)
-  (when (ews--font-installed-p ews-default-fixed-font)
-    (set-face-attribute 'default nil :family ews-default-fixed-font)
-    (set-face-attribute 'fixed-pitch nil :family ews-default-fixed-font :height 1.0))
-  (when (ews--font-installed-p ews-default-variable-font)
-    (set-face-attribute 'variable-pitch nil :family ews-default-variable-font :height 1.0)))
+(defun ews-apply-font-preferences (&rest _)
+  "Apply the configured font families to the relevant faces."
+  (when (display-graphic-p)
+    (when (ews--font-installed-p ews-default-fixed-font)
+      (set-face-attribute 'default nil :family ews-default-fixed-font)
+      (set-face-attribute 'fixed-pitch nil :family ews-default-fixed-font :height 1.0)
+      ;; Keep minibuffer and Ido candidates from falling back to a serif face.
+      (dolist (face '(minibuffer-prompt
+                      ido-first-match
+                      ido-only-match
+                      ido-subdir
+                      completions-common-part
+                      completions-first-difference))
+        (when (facep face)
+          (set-face-attribute face nil :family ews-default-fixed-font))))
+    (when (ews--font-installed-p ews-default-variable-font)
+      (set-face-attribute 'variable-pitch nil :family ews-default-variable-font :height 1.0))))
+
+(ews-apply-font-preferences)
+(advice-add 'load-theme :after #'ews-apply-font-preferences)
 
 (provide 'core-ui)
 ;;; core-ui.el ends here
