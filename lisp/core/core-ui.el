@@ -28,13 +28,18 @@
     (when (ews--font-installed-p ews-default-fixed-font)
       (set-face-attribute 'default nil :family ews-default-fixed-font)
       (set-face-attribute 'fixed-pitch nil :family ews-default-fixed-font :height 1.0)
-      ;; Keep minibuffer and Ido candidates from falling back to a serif face.
+      ;; Keep UI faces from falling back to an unintended family.
       (dolist (face '(minibuffer-prompt
                       ido-first-match
                       ido-only-match
                       ido-subdir
                       completions-common-part
-                      completions-first-difference))
+                      completions-first-difference
+                      mode-line
+                      mode-line-active
+                      mode-line-inactive
+                      mode-line-highlight
+                      display-time-mail-face))
         (when (facep face)
           (set-face-attribute face nil :family ews-default-fixed-font))))
     (when (ews--font-installed-p ews-default-variable-font)
