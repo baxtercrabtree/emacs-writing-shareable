@@ -5,8 +5,8 @@
 (setq ews-default-fixed-font "iA Writer Mono V")
 (setq ews-default-variable-font "iA Writer Quattro V")
 
-(setq ews-org-directory "~/Documents/MyStuff/crispy-fictions")
-(setq ews-org-journal-directory "~/Documents/MyStuff/crispy-fictions/journal")
+(setq ews-org-directory "~/Developer/Personal/crispy-fictions")
+(setq ews-org-journal-directory "~/Developer/Personal/crispy-fictions/journal")
 (setq ews-writing-cursor-color "#FF00FF")
 
 (setq ews-enable-circadian t)

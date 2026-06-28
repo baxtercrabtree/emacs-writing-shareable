@@ -14,14 +14,28 @@
   (add-hook 'org-mode-hook #'visual-line-mode)
   (add-hook 'org-mode-hook #'ews-org-writing-setup))
 
+(defun ews-org-writing-journal-directory ()
+  "Return the best journal directory for the writing workflow.
+
+Prefer `ews-org-journal-directory' when it exists. Otherwise derive a
+`journal' directory from `ews-org-directory' so journal entries stay anchored
+to the current Org root instead of falling back to package defaults."
+  (cond
+   ((ews--directory-exists-p ews-org-journal-directory)
+    (expand-file-name ews-org-journal-directory))
+   ((ews--directory-exists-p ews-org-directory)
+    (expand-file-name "journal" (expand-file-name ews-org-directory)))))
+
 (use-package org-journal
   :after org
   :bind (("C-c C-j" . org-journal-new-entry))
   :init
   (setq org-journal-date-format "%A, %d %B %Y")
   :config
-  (when (ews--directory-exists-p ews-org-journal-directory)
-    (setq org-journal-dir (expand-file-name ews-org-journal-directory))))
+  (when-let ((journal-dir (ews-org-writing-journal-directory)))
+    (unless (file-directory-p journal-dir)
+      (make-directory journal-dir t))
+    (setq org-journal-dir journal-dir)))
 
 (use-package wc-mode
   :commands wc-mode)
