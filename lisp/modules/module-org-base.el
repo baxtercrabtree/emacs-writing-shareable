@@ -14,6 +14,7 @@
   :init
   (setq org-hide-emphasis-markers ews-org-hide-emphasis-markers
         org-log-done t
+        org-modules nil
         org-startup-folded ews-org-startup-folded
         org-emphasis-alist '(("*" bold)
                              ("/" italic)
